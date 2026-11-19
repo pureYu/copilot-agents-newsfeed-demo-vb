@@ -1,0 +1,29 @@
+# Python artefacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Local environment and runtime files
+.env
+.venv/
+venv/
+env/
+
+# SQLite database — stored in a Docker named volume, not the image
+data/
+*.db
+*.db-shm
+*.db-wal
+
+# Test and dev tooling
+.pytest_cache/
+.coverage
+htmlcov/
+tests/
+
+# IDE
+.vscode/
+.idea/

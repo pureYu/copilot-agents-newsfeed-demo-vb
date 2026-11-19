@@ -1,0 +1,38 @@
+services:
+  # ── Backend ────────────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+    environment:
+      # Absolute path inside the container — persisted via the db_data volume.
+      # For local development outside Docker, the default in config.py
+      # (sqlite+aiosqlite:///./newsfeed.db) is used instead.
+      DATABASE_URL: sqlite+aiosqlite:////app/data/newsfeed.db
+      DEBUG: "false"
+      LOG_LEVEL: INFO
+      SSL_VERIFY: "false"
+    volumes:
+      - db_data:/app/data
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  # ── Frontend ───────────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+# ── Volumes ────────────────────────────────────────────────────────────────
+volumes:
+  # Named volume so the SQLite database survives container restarts.
+  db_data:

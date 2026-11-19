@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0",
+  "marketplace": "github/awesome-copilot",
+  "marketplaceSetupCommand": "copilot plugin marketplace add github/awesome-copilot",
+  "packages": [
+    {
+      "name": "review-and-refactor",
+      "installCommand": "copilot plugin install review-and-refactor@awesome-copilot",
+      "version": "refs/heads/main",
+      "treeSha": "1c31b702214c02180ffaaa67ce54f51c9e10fac7",
+      "source": "github/awesome-copilot",
+      "githubPath": "skills/review-and-refactor",
+      "type": "skill",
+      "installedTo": ".github/skills/review-and-refactor/SKILL.md",
+      "purpose": "Reviews all code against path-specific instructions and refactors for quality, clean code, and maintainability.",
+      "installedBy": "orchestrator",
+      "usedIn": ["M2-M5 implementation tasks", "post-executor code quality pass"],
+      "evidence": "docs/agent-execution-log.md"
+    },
+    {
+      "name": "documentation-writer",
+      "installCommand": "copilot plugin install documentation-writer@awesome-copilot",
+      "version": "refs/heads/main",
+      "treeSha": "016d8040a3f91c8360b1003e74fbf29f34c283f5",
+      "source": "github/awesome-copilot",
+      "githubPath": "skills/documentation-writer",
+      "type": "skill",
+      "installedTo": ".github/skills/documentation-writer/SKILL.md",
+      "purpose": "Produces Diataxis-structured documentation (tutorials, how-to guides, reference, explanation) for copilot-usage-guide.md and demo-script.md.",
+      "installedBy": "orchestrator",
+      "usedIn": ["docs/copilot-usage-guide.md", "docs/demo-script.md"],
+      "evidence": "docs/agent-execution-log.md"
+    },
+    {
+      "name": "create-github-issues-feature-from-implementation-plan",
+      "installCommand": "copilot plugin install create-github-issues-feature-from-implementation-plan@awesome-copilot",
+      "version": "refs/heads/main",
+      "treeSha": "e9c8ec75105420d2086d84b5d3c40fe721bd3622",
+      "source": "github/awesome-copilot",
+      "githubPath": "skills/create-github-issues-feature-from-implementation-plan",
+      "type": "skill",
+      "installedTo": ".github/skills/create-github-issues-feature-from-implementation-plan/SKILL.md",
+      "purpose": "Creates GitHub Issues from implementation plan phases using feature_request.yml or chore_request.yml templates, one issue per phase.",
+      "installedBy": "orchestrator",
+      "usedIn": ["milestone planning", "task tracking via GitHub Issues"],
+      "evidence": "docs/agent-execution-log.md"
+    },
+    {
+      "name": "requirements-analyst",
+      "installCommand": "custom — added directly to .github/skills/",
+      "version": "local",
+      "treeSha": null,
+      "source": "local",
+      "githubPath": null,
+      "type": "skill",
+      "installedTo": ".github/skills/requirements-analyst/SKILL.md",
+      "purpose": "Converts requirements into epics, milestones, tasks, acceptance criteria, and dependency analysis. Maintains primary/secondary deliverable distinction throughout.",
+      "installedBy": "orchestrator",
+      "usedIn": ["docs/REQUIREMENTS_SUMMARY.md analysis", "M1-M5 planning"],
+      "evidence": "docs/agent-execution-log.md row 2026-07-10"
+    },
+    {
+      "name": "architecture-writer",
+      "installCommand": "custom — added directly to .github/skills/",
+      "version": "local",
+      "treeSha": null,
+      "source": "local",
+      "githubPath": null,
+      "type": "skill",
+      "installedTo": ".github/skills/architecture-writer/SKILL.md",
+      "purpose": "Proposes, reviews, and documents system architecture with tradeoff recording, observability, and compliance considerations.",
+      "installedBy": "orchestrator",
+      "usedIn": ["docs/architecture-overview.md"],
+      "evidence": "docs/architecture-overview.md Key design decisions section"
+    },
+    {
+      "name": "demo-evidence-recorder",
+      "installCommand": "custom — added directly to .github/skills/",
+      "version": "local",
+      "treeSha": null,
+      "source": "local",
+      "githubPath": null,
+      "type": "skill",
+      "installedTo": ".github/skills/demo-evidence-recorder/SKILL.md",
+      "purpose": "Ensures the primary deliverable (explainable Copilot AI workflow) stays visible and current. Records agent/skill/MCP usage, decisions, and outputs after each meaningful activity.",
+      "installedBy": "orchestrator",
+      "usedIn": ["docs/agent-execution-log.md", "docs/copilot-usage-guide.md", "docs/mcp-integration-summary.md", "docs/demo-script.md"],
+      "evidence": "docs/agent-execution-log.md — applied on every task completion"
+    }
+  ]
+}
